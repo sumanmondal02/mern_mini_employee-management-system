@@ -1,0 +1,29 @@
+### Retrieve all employees
+GET http://localhost:6161/employee-api/employee
+
+### Register a new employee
+POST http://localhost:6161/employee-api/employee
+Content-Type: application/json
+
+{
+    "name": "John Doe",
+    "email": "john.doe@example.com",
+    "mobile": "1234567890",
+    "designation": "Software Engineer",
+    "companyName": "Tech Company"
+}
+
+### Update an employee's details
+PUT http://localhost:6161/employee-api/employee
+Content-Type: application/json
+
+{
+    "name": "John Doe Updated",
+    "email": "john.de@example.com",
+    "mobile": "1234567890",
+    "designation": "Senior Software Engineer",
+    "companyName": "Tech Company"
+}
+
+### Delete an employee
+DELETE http://localhost:6161/employee-api/employee/john.de@example.com
