@@ -11,13 +11,7 @@ config()
 //create exp app
 const app = exp()
 
-app.use(
-  cors({
-  origin: ["*"],
-  methods: ["GET", "POST", "PATCH", "DELETE"],
-  credentials: true,
-  allowedHeaders: ["Content-Type", "Authorization"], 
-}))
+app.use(cors())
 
 //cookie parser middleware
 app.use(cookieParser())
@@ -32,8 +26,8 @@ const connectDB = async()=>{
         await connect(process.env.DB_URL, {dbName: "employeeDB"})
         console.log("DB connected successfully")
         //ASSIGN PORT 
-        const port = process.env.port
-        app.listen(port, ()=>console.log(`Server is running on port ${port}`))
+        const port = process.env.port || 6161
+        // app.listen(port, ()=>console.log(`Server is running on port ${port}`))
     } catch (error) {
         console.error("Error connecting to DB:", error)
     }
@@ -73,3 +67,5 @@ app.use((err, req, res, next) => {
   //send server side error
   res.status(500).json({ message: "error occurred", error: "Server side error" });
 }); 
+
+export default app  
