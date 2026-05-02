@@ -24,7 +24,7 @@ function EditEmployee() {
     //console.log(modifiedEmp)
     //make http put req
     try{
-      let res=await axios.put(`http://localhost:6161/employee-api/employee/${state._id}`, modifiedEmp)
+      let res=await axios.put(`https://employee-management-system-backend-sandy.vercel.app/employee-api/employee/${state._id}`, modifiedEmp)
       if(res.status === 200){
         alert("Employee details updated successfully")
         navigate("/list")

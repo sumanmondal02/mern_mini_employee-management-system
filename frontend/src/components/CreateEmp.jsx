@@ -18,7 +18,8 @@ function CreateEmp() {
         //make http post req to backend to save the new employee in db
         try{
           setLoading(true)
-          let res=await fetch('http://localhost:6161/employee-api/employee', {
+          // let res=await fetch('http://localhost:6161/employee-api/employee', {
+          let res=await fetch('https://employee-management-system-backend-sandy.vercel.app/employee-api/employee', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'

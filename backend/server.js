@@ -32,7 +32,7 @@ const connectDB = async()=>{
         await connect(process.env.DB_URL, {dbName: "employeeDB"})
         console.log("DB connected successfully")
         //ASSIGN PORT 
-        const port = process.env.port || 6161
+        const port = process.env.port
         app.listen(port, ()=>console.log(`Server is running on port ${port}`))
     } catch (error) {
         console.error("Error connecting to DB:", error)
