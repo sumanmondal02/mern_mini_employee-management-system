@@ -11,8 +11,12 @@ config()
 //create exp app
 const app = exp()
 
-app.use(cors({
-  origin: ["http://localhost:5173"]
+app.use(
+  cors({
+  origin: ["*"],
+  methods: ["GET", "POST", "PATCH", "DELETE"],
+  credentials: true,
+  allowedHeaders: ["Content-Type", "Authorization"], 
 }))
 
 //cookie parser middleware
@@ -25,7 +29,7 @@ app.use("/employee-api", employeeApp)
 
 const connectDB = async()=>{
     try{
-        await connect(process.env.DB_URL)
+        await connect(process.env.DB_URL, {dbName: "employeeDB"})
         console.log("DB connected successfully")
         //ASSIGN PORT 
         const port = process.env.port || 6161
